@@ -71,9 +71,37 @@ local storyboard = require "storyboard"
 -- load scenetemplate.lua
 --storyboard.gotoScene( "menu" )
 
+local width = 30
+local height = 30
+local tiles = {}
 
+for i = 1, width do
+    tiles[i] = {}
+    for k = 1, height do
+        tiles[i][k] = Tile:new(i, k, "grass")
+    end
+end
 
-local newTile = Tile:new(25, 25, "woods")
+--[[local newTile = Tile:new(0, 0, "woods")
 
 print(newTile.type.purchaseCost)
+--]]
 
+local y = 1
+local x
+print(debug.getinfo(1).source)
+local dir = ""
+--[[local testfile = io.open("map2.txt", "w+")
+print(testfile)
+io.write(testfile, "testing")
+testfile:write("testing")
+testfile:flush()
+testfile:close()--]]
+for line in io.lines(dir .. "map1.txt") do
+    x = 1
+    for w in string.gmatch(line, "%a+") do
+        tiles[y][x] = Tile:new(x, y, w)
+        x = x + 1
+    end
+    y = y + 1
+end

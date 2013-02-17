@@ -1,0 +1,51 @@
+-- Supported values for orientation:
+-- landscape, landscapeLeft, landscapeRight
+
+settings = {
+	
+	orientation = {
+		default = "landscape",
+		content = "landscape",
+		supported = { "landscape", }
+	},
+	
+	iphone = {
+		plist = {
+			CFBundleIconFile = "Icon.png",
+             CFBundleIconFiles = {
+                    "Icon.png" , 
+                    "Icon@2x.png" , 
+                    "Icon-72.png" , 
+             },
+			UIStatusBarHidden = true,
+			UIPrerenderedIcon = true, -- set to false for "shine" overlay
+			--UIApplicationExitsOnSuspend = true, -- uncomment to quit app on suspend
+			UIAppFonts = {
+				
+			}
+
+            --[[
+            -- iOS app URL schemes:
+            CFBundleURLTypes =
+            {
+                {
+                    CFBundleURLSchemes =
+                    {
+                        "fbXXXXXXXXXXXXXX", -- example scheme for facebook
+                        "coronasdkapp", -- example second scheme
+                    }
+                }
+            }
+            --]]
+		}
+	},
+	
+	--[[
+	-- Android permissions
+
+	androidPermissions = {
+  		"android.permission.INTERNET",
+  	},
+
+	]]--
+}
